@@ -51,4 +51,6 @@
     "@redux-devtools/extension": "^3.3.0"
   },
   "proxy": "http://localhost:5000"
+
 }
+

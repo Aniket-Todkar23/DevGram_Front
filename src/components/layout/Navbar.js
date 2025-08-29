@@ -370,7 +370,9 @@ const Navbar = () => {
       
       <nav 
         style={navbarStyle} 
-        className={`navbar-container ${isScrolled ? 'scrolled' : ''}`}
+        className={`navbar-container ${isScrolled ? 'scrolled' : ''}`
+        
+      }
       >
         <div style={backgroundPatternStyle}></div>
         
