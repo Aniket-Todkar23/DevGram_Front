@@ -283,7 +283,6 @@ const Navbar = () => {
             50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.5); }
           }
           
-          /* Fixed navbar background */
           .navbar-container {
             background: rgba(15, 15, 35, 0.95) !important;
             backdrop-filter: blur(20px) !important;
@@ -294,7 +293,6 @@ const Navbar = () => {
             background: rgba(15, 15, 35, 0.98) !important;
           }
           
-          /* Fallback for browsers that don't support backdrop-filter */
           @supports not (backdrop-filter: blur(20px)) {
             .navbar-container {
               background: rgba(15, 15, 35, 0.98) !important;
@@ -347,32 +345,12 @@ const Navbar = () => {
               display: none !important;
             }
           }
-          
-          /* Add padding to body to prevent navbar overlap */
-          html, body {
-            padding-top: 0 !important;
-            margin: 0;
-          }
-          
-          /* Create space for fixed navbar on all pages */
-          #root {
-            padding-top: 100px !important;
-          }
-          
-          /* Adjust for different screen sizes */
-          @media (max-width: 768px) {
-            #root {
-              padding-top: 90px !important;
-            }
-          }
         `}
       </style>
       
       <nav 
         style={navbarStyle} 
-        className={`navbar-container ${isScrolled ? 'scrolled' : ''}`
-        
-      }
+        className={`navbar-container ${isScrolled ? 'scrolled' : ''}`}
       >
         <div style={backgroundPatternStyle}></div>
         
