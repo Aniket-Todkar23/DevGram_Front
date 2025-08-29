@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../actions/auth';
 import { 
-  Code2, 
   Users, 
   MessageCircle, 
   LayoutDashboard, 
@@ -15,6 +14,8 @@ import {
   Sparkles,
   Home
 } from 'lucide-react';
+
+// Logo is in public folder, so we'll reference it directly
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -86,6 +87,14 @@ const Navbar = () => {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent'
+  };
+
+  const logoImageStyle = {
+    width: isScrolled ? '24px' : '28px',
+    height: isScrolled ? '24px' : '28px',
+    transition: 'all 0.3s ease',
+    filter: 'drop-shadow(0 0 8px rgba(139, 92, 246, 0.5))',
+    borderRadius: '4px' // Optional: adds slight rounding to the logo
   };
 
   const navLinksStyle = {
@@ -283,6 +292,11 @@ const Navbar = () => {
             50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.5); }
           }
           
+          @keyframes logoGlow {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5)); }
+            50% { filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8)) drop-shadow(0 0 25px rgba(59, 130, 246, 0.5)); }
+          }
+          
           .navbar-container {
             background: rgba(15, 15, 35, 0.95) !important;
             backdrop-filter: blur(20px) !important;
@@ -315,6 +329,11 @@ const Navbar = () => {
             background: linear-gradient(45deg, rgba(239, 68, 68, 0.3), rgba(220, 38, 38, 0.3)) !important;
             box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
             color: #fecaca !important;
+          }
+          
+          .logo:hover .logo-image {
+            animation: logoGlow 2s ease-in-out infinite;
+            transform: scale(1.1);
           }
           
           .logo:hover {
@@ -357,8 +376,13 @@ const Navbar = () => {
         {/* Logo */}
         <div style={logoContainerStyle}>
           <Link to="/" style={logoStyle} className="logo">
-            <Code2 size={isScrolled ? 20 : 24} />
-            DevConnector
+            <img 
+              src="/logo512.png"
+              alt="DevGram Logo" 
+              style={logoImageStyle}
+              className="logo-image"
+            />
+            DevGram
             <Sparkles size={16} style={sparkleStyle} />
           </Link>
         </div>

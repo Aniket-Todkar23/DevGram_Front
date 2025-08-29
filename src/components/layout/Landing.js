@@ -452,7 +452,7 @@ const Landing = () => {
               maxWidth: '600px',
               margin: '0 auto 40px auto'
             }}>
-              From junior developers to senior engineers, DevConnector is where the coding community 
+              From junior developers to senior engineers, DevGram is where the coding community 
               comes together to share, learn, and grow. Your next opportunity or collaboration is just one connection away.
             </p>
 
